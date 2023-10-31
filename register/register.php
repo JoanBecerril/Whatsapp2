@@ -26,23 +26,23 @@
             <form action="./procesos/register.proc.php" method="POST">
                 <div class="inputs">
                     <label for="nombre">Nombre:</label>
-                    <input type="text" class="form-control" name="usuario" id="username" required>
+                    <input type="text" class="form-control" name="new_username" id="username" required>
                 </div>
                 <div class="inputs">
                     <label for="apellido">Apellido:</label>
-                    <input type="text" class="form-control" id="surname" name="apellido" required>
+                    <input type="text" class="form-control" name="new_surname" id="surname" required>
                 </div>
                 <div class="inputs">
                     <label for="email">Email:</label>
-                    <input type="email" class="form-control" name="email" id="email" required>
+                    <input type="email" class="form-control" name="new_email" id="email" required>
                 </div>
                 <div class="inputs">
                     <label for="password">Contraseña:</label>
-                    <input type="password" class="form-control" name="contraseña" id="password" required>
+                    <input type="password" class="form-control" name="new_password" id="password" required>
                 </div>
                 <div class="inputs">
                     <label for="confirm-password">Confirmar Contraseña:</label>
-                    <input type="password" class="form-control" name="confirmar_contraseña" id="confirm_password" required>
+                    <input type="password" class="form-control" name="new_conf_password" id="confirm_password" required>
                 </div>
                 <br>
                 <button type="submit" name="register" value="register" class="boton">Registrarse</button>
