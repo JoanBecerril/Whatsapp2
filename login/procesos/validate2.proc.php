@@ -8,9 +8,8 @@ function validaCampoVacio($campo) {
     }
     return $error;
 }
-?>
 
-<?php
+
 if (!filter_has_var(INPUT_POST, 'login')) {
     header('Location: '.'./login.proc.php');
     exit();
@@ -20,7 +19,10 @@ $errores="";
 
 $username = $_POST['new_username'];
 $contraseña = $_POST['new_password'];
-
+// echo $username;
+// echo $contraseña;
+// echo $errores;
+// die();
 include("../../conexion/conexion.php");
 
 if (validaCampoVacio($username)){
@@ -51,9 +53,11 @@ if ($sql->num_rows>0) {
     $hashContraseña=$datos['new_password'];
 
     /*Comprobamos que la contraseña puesta sea igual a la de la base de datos*/
-    if ($contraseña=$hashContraseña) {
+    if ($contraseña===$hashContraseña) {
         /* Creamos la sesión */
+        session_start();
         $_SESSION['loggedin'] = true;
+
         header("location: ../../paginaprincipal.php");
     } else {
         if ($contraseña != "") {
@@ -84,7 +88,7 @@ if ($errores!=""){
         'new_username' => $username,
         'new_password' => $contraseña,
     );
-    
+
     $datosDevueltos=http_build_query($datosRecibidos);
     header("Location: ../login.php". $errores. "&". $datosDevueltos);
     exit();

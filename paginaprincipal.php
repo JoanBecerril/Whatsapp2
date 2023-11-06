@@ -8,7 +8,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
 echo "Fin";
 ?>
-<script>
+<!-- <script>
     alert("Donde salimos este finde");
     alert("Razzz");
     alert("Es buena");
@@ -18,4 +18,4 @@ echo "Fin";
     alert("Los sábados ponen tecno");
     alert("Al final nadie va razz? Esque sois tontos tío");
     alert("Parkineo zoco");
-</script>
+</script> -->
