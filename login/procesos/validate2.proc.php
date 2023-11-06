@@ -18,11 +18,8 @@ if (!filter_has_var(INPUT_POST, 'login')) {
 $errores="";
 
 $username = $_POST['new_username'];
-$contraseña = $_POST['new_password'];
-// echo $username;
-// echo $contraseña;
-// echo $errores;
-// die();
+$contrasena = $_POST['new_password'];
+
 include("../../conexion/conexion.php");
 
 if (validaCampoVacio($username)){
@@ -33,7 +30,7 @@ if (validaCampoVacio($username)){
      }
 }
 
-if (validaCampoVacio($contraseña)){
+if (validaCampoVacio($contrasena)){
     if (!$errores){
         $errores .="?contraseñaVacio=true";
      } else {
@@ -41,7 +38,7 @@ if (validaCampoVacio($contraseña)){
      }
 }
 
-/* La variable 'sql' hace una consulta donde: selecciona todo de la tabla 'tbl_users' donde el usuario es igual a la variable '$user' y la contraseña igual a la variable '$contraseña' */ 
+/* La variable 'sql' hace una consulta donde: selecciona todo de la tabla 'tbl_users' donde el usuario es igual a la variable '$user' y la contraseña igual a la variable '$contrasena' */ 
 $sql=$mysqli->query("SELECT * FROM tbl_register WHERE new_username='$username'");
 
 if ($sql->num_rows>0) {
@@ -53,14 +50,14 @@ if ($sql->num_rows>0) {
     $hashContraseña=$datos['new_password'];
 
     /*Comprobamos que la contraseña puesta sea igual a la de la base de datos*/
-    if ($contraseña===$hashContraseña) {
+    if ($contrasena===$hashContraseña) {
         /* Creamos la sesión */
         session_start();
         $_SESSION['loggedin'] = true;
 
         header("location: ../../paginaprincipal.php");
     } else {
-        if ($contraseña != "") {
+        if ($contrasena != "") {
             if (!$errores){
                 $errores .="?contraseñaMal=true";
             } else {
@@ -86,7 +83,7 @@ if ($errores!=""){
 
     $datosRecibidos = array(
         'new_username' => $username,
-        'new_password' => $contraseña,
+        'new_password' => $contrasena,
     );
 
     $datosDevueltos=http_build_query($datosRecibidos);
@@ -95,7 +92,7 @@ if ($errores!=""){
 }else{
     echo"<form id='EnvioCheck' action='../../paginaprincipal.php' method='POST'>";
     echo"<input type='hidden' id='username' name='new_username' value='".$username."'>";
-    echo"<input type='hidden' id='password' name='new_password' value='".$contraseña."'>";
+    echo"<input type='hidden' id='password' name='new_password' value='".$contrasena."'>";
     echo"</form>";
     echo "<script>document.getElementById('EnvioCheck').submit();</script>";
  }
