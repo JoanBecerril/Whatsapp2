@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-11-2023 a las 23:31:08
+-- Tiempo de generación: 13-11-2023 a las 23:39:17
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -42,12 +42,7 @@ CREATE TABLE `tbl_chat` (
 
 INSERT INTO `tbl_chat` (`id_chat`, `usuario_chat`, `mensaje_chat`, `fecha_chat`) VALUES
 (4, 'puigdemont', 'tete pasame los 20K', '2023-11-12 14:42:05'),
-(5, 'rajoy', 'dale tt', '2023-11-12 14:46:41'),
-(6, 'rajoy', 'ogvycuhjginokplmjnhbvg', '2023-11-12 16:27:18'),
 (7, 'puigdemont', 'duroo', '2023-11-12 16:44:49'),
-(8, 'puigdemont', 'wdefrtg', '2023-11-12 16:49:27'),
-(9, 'rajoy', 'fghyujik', '2023-11-12 22:49:42'),
-(10, 'puigdemont', 'dsfgyh', '2023-11-12 22:50:36'),
 (11, 'rajoy', 'dale', '2023-11-13 12:38:52'),
 (12, 'puigdemont', 'dale don dale', '2023-11-13 12:39:23');
 
@@ -71,11 +66,10 @@ CREATE TABLE `tbl_users` (
 --
 
 INSERT INTO `tbl_users` (`id_users`, `username`, `surname`, `email`, `password`, `conf_password`) VALUES
-(1, 'puigdemont', 'carles', 'puigdemont@arrobar.cat', 'qweQWE123', 'qweQWE123'),
-(2, 'rajoy', 'mariano', 'rajoy@arrobar.esp', 'qweQWE123', 'qweQWE123'),
-(23, 'rafa', 'lacoca', 'rafa.lacoca@traelaya.com', '$2y$10$kHY7BkZxW9u.aVjZAQ', '$2y$10$8rTxyxZBr0Ut9iuWS5'),
-(24, 'newvision', 'freezing', 'juanca.joan23@fje.edu', '$2y$10$mxd.5Xj2Agimb/X416', '$2y$10$Itj9L2AAk0k5NrMSx3'),
-(25, 'sanchez', 'pedro', 'quetevote@xapote.cat', '$2y$10$qVkXOKspvofhk8tj23YX6OaBRlixPFeBqYnh0Q8B./Gjo2K16L3.C', '$2y$10$1T.HAgogy9T8e0GUuFTJguB2vaxD8guIaWJzsPN0P7gikKMsDKHCK');
+(1, 'sanchez', 'pedro', 'quetevote@xapote.cat', '$2y$10$qVkXOKspvofhk8tj23YX6OaBRlixPFeBqYnh0Q8B./Gjo2K16L3.C', '$2y$10$1T.HAgogy9T8e0GUuFTJguB2vaxD8guIaWJzsPN0P7gikKMsDKHCK'),
+(2, 'puigdemont', 'carles', 'puigdemont@arrobar.cat', '$2y$10$c8TB7A7DItGRw6lT2IiR5upZg5ysRZB1e1m2Pug3vFwB7yHKQWqFa', '$2y$10$CQd37pjZhEIVyzDNH1QZIeD0AE3azn/nxGJilBZ1xXazveW0FDZUK'),
+(3, 'rajoy', 'mariano', 'rajoy@arrobar.esp', '$2y$10$WlLFyAvvcVxA1/.NN3pmROK7hcsG2sbfnO33Q1fB89S2Rh0KlN.Z2', '$2y$10$UOsQCTmGLZhM44uPknX5UewUzSIOE/OQ41vlu2UPhbY.xRXKT80.K'),
+(4, 'rafa', 'lacoca', 'rafa.lacoca@traelaya.com', '$2y$10$smre4RUyXtd0aNc.2/9BhOi/pWcSBceTk7HEB3.zL/q4YQIs5Ty4e', '$2y$10$Wr/xNg8qsKRL9CLTomEot.7xe8bXw1vB./5jSYogvD03HVY6gahn.');
 
 --
 -- Índices para tablas volcadas
@@ -107,7 +101,7 @@ ALTER TABLE `tbl_chat`
 -- AUTO_INCREMENT de la tabla `tbl_users`
 --
 ALTER TABLE `tbl_users`
-  MODIFY `id_users` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_users` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
