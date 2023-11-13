@@ -1,16 +1,11 @@
 <?php
-// Variable que hace una conexión al servidor mysqli donde conectamos el host, usuario,
-// contraseña y la base de datos donde haremos la consulta (NewVision)
-$mysqli=mysqli_connect('localhost','root','',"db_whatsapp2");
-if (!empty($_POST["login"])) {
-    if (empty($_POST["username"]) || empty($_POST["password"])) {
-        echo "Los campos están vacíos";
-    } else {
-        // Recoge el valor del usuario en el formulario (input text)
-        $user=$_POST["username"];
-        // Recoge el valor de la contraseña en el formulario (input text)
-        $contraseña=$_POST["password"];
-    }
-}
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
+try{
+    // Variable que hace una conexión al servidor mysqli donde conectamos el host, usuario, contraseña y la base de datos donde haremos la consulta (NewVision)
+    $mysqli=mysqli_connect('localhost','root','',"db_whatsapp2");
+} catch (Exception $e){
+    echo "Error en la conexión con la base de datos: " . $e->getMessage();
+    die();
+}
 ?>

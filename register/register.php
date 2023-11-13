@@ -26,34 +26,34 @@
             <form action="./procesos/validate.proc.php" method="POST">
                 <div class="inputs">
                     <label for="nombre">Nombre:</label>
-                    <input type="text" class="form-control" name="new_username" id="username" value="<?php if(isset($_GET['new_username'])) {echo $_GET['new_username'];} ?>">
+                    <input type="text" class="form-control" name="username" id="username" value="<?php if(isset($_GET['username'])) {echo $_GET['username'];} ?>">
                     <?php if (isset($_GET['usernameVacio'])) {echo "<br><br><p class='editaNombre'>Falta tu nombre</p>"; } ?>
                     <?php if (isset($_GET['usernameMal'])) {echo "<br><br><p class='editaNombre'>Tu nombre solo puede contener letras y números</p>"; } ?>
                 </div>
                 <div class="inputs">
                     <label for="apellido">Apellido:</label>
-                    <input type="text" class="form-control" name="new_surname" id="surname" value="<?php if(isset($_GET['new_surname'])) {echo $_GET['new_surname'];} ?>">
+                    <input type="text" class="form-control" name="surname" id="surname" value="<?php if(isset($_GET['surname'])) {echo $_GET['surname'];} ?>">
                     <?php if (isset($_GET['apellidoVacio'])) {echo "<br><br><p class='editaApellido'>Falta tu apellido</p>"; } ?>
                     <?php if (isset($_GET['apellidoMal'])) {echo "<br><br><p class='editaApellido'>Tu apellido solo puede contener letras y números</p>"; } ?>
                 </div>
                 <div class="inputs">
                     <label for="email">Email:</label>
-                    <input type="email" class="form-control" name="new_email" id="email" value="<?php if(isset($_GET['new_email'])) {echo $_GET['new_email'];} ?>">
+                    <input type="email" class="form-control" name="email" id="email" value="<?php if(isset($_GET['email'])) {echo $_GET['email'];} ?>">
                     <?php if (isset($_GET['emailVacio'])) {echo "<br><br><p class='editaCorreo'>Falta tu correo</p>"; } ?>
                     <?php if (isset($_GET['emailMal'])) {echo "<br><br><p class='editaCorreo'>Tu correo debe contener un @</p>"; } ?>
                 </div>
                 <div class="inputs">
                     <label for="password">Contraseña:</label>
-                    <input type="password" class="form-control" name="new_password" id="password">
-                    <?php if (isset($_GET['contraseñaVacio'])) {echo "<br><br><p class='editaContraseña'>Escribe tu contraseña</p>"; } ?>
-                    <?php if (isset($_GET['contraseñaMal'])) {echo "<br><br><p class='editaContraseña'>No puede contener símbolos (#$%&@)</p>"; } ?>
+                    <input type="password" class="form-control" name="password" id="password">
+                    <?php if (isset($_GET['contrasenaVacio'])) {echo "<br><br><p class='editaContraseña'>Escribe tu contraseña</p>"; } ?>
+                    <?php if (isset($_GET['contrasenaMal'])) {echo "<br><br><p class='editaContraseña'>No puede contener símbolos (#$%&@)</p>"; } ?>
                 </div>
                 <div class="inputs">
                     <label for="confirm-password">Confirmar Contraseña:</label>
-                    <input type="password" class="form-control" name="new_conf_password" id="confirm_password">
-                    <?php if (isset($_GET['contraseña2Vacio'])) {echo "<br><br><p class='editaConfirmarContraseña'>Vuelve a escribir tu contraseña</p>"; } ?>
-                    <?php if (isset($_GET['contraseña2Mal'])) {echo "<br><br><p class='editaConfirmarContraseña'>Tu apellido solo puede contener letras y números</p>"; } ?>
-                    <?php if (isset($_GET['contraseña2Repetir'])) {echo "<br><br><p class='editaConfirmarContraseña'>Tienes que escribir la misma contraseña</p>"; } ?>
+                    <input type="password" class="form-control" name="conf_password" id="confirm_password">
+                    <?php if (isset($_GET['contrasena2Vacio'])) {echo "<br><br><p class='editaConfirmarContraseña'>Vuelve a escribir tu contraseña</p>"; } ?>
+                    <?php if (isset($_GET['contrasena2Mal'])) {echo "<br><br><p class='editaConfirmarContraseña'>Tu apellido solo puede contener letras y números</p>"; } ?>
+                    <?php if (isset($_GET['contrasena2Repetir'])) {echo "<br><br><p class='editaConfirmarContraseña'>Tienes que escribir la misma contraseña</p>"; } ?>
                 </div>
                 <br>
                 <button type="submit" name="register" value="register" class="boton">Registrarse</button>

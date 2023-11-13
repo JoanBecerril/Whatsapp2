@@ -27,15 +27,15 @@
             <form action="./procesos/validate2.proc.php" method="POST">
                 <div class="inputs">
                     <label for="email">Usuario:</label>
-                    <input type="text" class="form-control" id="username" name="new_username" value="<?php if(isset($_GET['new_username'])) {echo $_GET['new_username'];} ?>">
+                    <input type="text" class="form-control" id="username" name="username" value="<?php if(isset($_GET['username'])) {echo $_GET['username'];} ?>">
                     <?php if (isset($_GET['usernameVacio'])) {echo "<br><br><p class='editaNombre'>Falta tu nombre</p>"; } ?>
                     <?php if (isset($_GET['usernameMal'])) {echo "<br><br><p class='editaNombre'>Usuario incorrecto</p>"; } ?>
                 </div>
                 <div class="inputs">
                     <label for="password">Contraseña:</label>
-                    <input type="password" class="form-control" id="password" name="new_password">
-                    <?php if (isset($_GET['contraseñaVacio'])) {echo "<br><br><p class='editaContraseña'>Escribe tu contraseña</p>"; } ?>
-                    <?php if (isset($_GET['contraseñaMal'])) {echo "<br><br><p class='editaContraseña'>Contraseña incorrecta</p>"; } ?>
+                    <input type="password" class="form-control" id="password" name="password">
+                    <?php if (isset($_GET['contrasenaVacio'])) {echo "<br><br><p class='editaContraseña'>Escribe tu contraseña</p>"; } ?>
+                    <?php if (isset($_GET['contrasenaMal'])) {echo "<br><br><p class='editaContraseña'>Contraseña incorrecta</p>"; } ?>
                 </div>
                 <br>
                 <br>

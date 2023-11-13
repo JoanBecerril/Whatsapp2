@@ -17,51 +17,55 @@ if (!filter_has_var(INPUT_POST, 'login')) {
 
 $errores="";
 
-$username = $_POST['new_username'];
-$contrasena = $_POST['new_password'];
+$username = $_POST['username'];
+$contrasena = $_POST['password'];
 
 include("../../conexion/conexion.php");
 
 if (validaCampoVacio($username)){
     if (!$errores){
         $errores .="?usernameVacio=true";
-     } else {
+    } else {
         $errores .="&usernameVacio=true";        
-     }
+    }
 }
 
 if (validaCampoVacio($contrasena)){
     if (!$errores){
-        $errores .="?contraseñaVacio=true";
+        $errores .="?contrasenaVacio=true";
      } else {
-        $errores .="&contraseñaVacio=true";        
+        $errores .="&contrasenaVacio=true";        
      }
 }
 
-/* La variable 'sql' hace una consulta donde: selecciona todo de la tabla 'tbl_users' donde el usuario es igual a la variable '$user' y la contraseña igual a la variable '$contrasena' */ 
-$sql=$mysqli->query("SELECT * FROM tbl_register WHERE new_username='$username'");
+/* La variable 'sql' hace una consulta donde: selecciona todo de la tabla 'tbl_users' donde el usuario es igual a la variable '$user' y la contrasena igual a la variable '$contrasena' */ 
+// $sql=$mysqli->query("SELECT * FROM tbl_users WHERE username='$username'");
+$sql = "SELECT * FROM tbl_users WHERE username='$username'";
+$stmt = mysqli_prepare($mysqli, $sql);
+mysqli_stmt_execute($stmt);
+$consulta = mysqli_stmt_get_result($stmt);
 
-if ($sql->num_rows>0) {
+if (mysqli_num_rows($consulta) > 0) {
 
     /* Se crea la variable '$datos' que obtendrá la siguiente fila de la consulta anterior) */
-    $datos=$sql->fetch_assoc();
-    
-    /*Creamos un hash que recojerá la contrasaeña de la base de datos*/
-    $hashContraseña=$datos['new_password'];
+    $datos = mysqli_fetch_assoc($consulta);
 
-    /*Comprobamos que la contraseña puesta sea igual a la de la base de datos*/
-    if ($contrasena===$hashContraseña) {
+    /*Creamos un hash que recojerá la contrasaena de la base de datos*/
+    $hashContrasena=$datos['password'];
+
+    /*Comprobamos que la contrasena puesta sea igual a la de la base de datos (el hash)*/
+    if ($contrasena===$hashContrasena) {
         /* Creamos la sesión */
         session_start();
         $_SESSION['loggedin'] = true;
-
+        $_SESSION['username'] = $username;
         header("location: ../../paginaprincipal.php");
     } else {
         if ($contrasena != "") {
             if (!$errores){
-                $errores .="?contraseñaMal=true";
+                $errores .="?contrasenaMal=true";
             } else {
-                $errores .="&contraseñaMal=true";        
+                $errores .="&contrasenaMal=true";        
             }
         }
             
@@ -82,8 +86,8 @@ else {
 if ($errores!=""){
 
     $datosRecibidos = array(
-        'new_username' => $username,
-        'new_password' => $contrasena,
+        'username' => $username,
+        'password' => $contrasena,
     );
 
     $datosDevueltos=http_build_query($datosRecibidos);
@@ -91,8 +95,8 @@ if ($errores!=""){
     exit();
 }else{
     echo"<form id='EnvioCheck' action='../../paginaprincipal.php' method='POST'>";
-    echo"<input type='hidden' id='username' name='new_username' value='".$username."'>";
-    echo"<input type='hidden' id='password' name='new_password' value='".$contrasena."'>";
+    echo"<input type='hidden' id='username' name='username' value='".$username."'>";
+    echo"<input type='hidden' id='password' name='password' value='".$contrasena."'>";
     echo"</form>";
     echo "<script>document.getElementById('EnvioCheck').submit();</script>";
  }

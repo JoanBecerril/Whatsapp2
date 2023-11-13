@@ -18,11 +18,11 @@ if (!filter_has_var(INPUT_POST, 'register')) {
 
 $errores="";
 
-$username = $_POST['new_username'];
-$surname = $_POST['new_surname'];
-$email = $_POST['new_email'];
-$contraseña = $_POST['new_password'];
-$confirmar_contraseña = $_POST['new_conf_password'];
+$username = $_POST['username'];
+$surname = $_POST['surname'];
+$email = $_POST['email'];
+$contrasena = $_POST['password'];
+$confirmar_contrasena = $_POST['conf_password'];
 
 
 if (validaCampoVacio($username)){
@@ -64,7 +64,7 @@ if (validaCampoVacio($email)){
         $errores .="&emailVacio=true";        
      }
   } else {
-    if(!filter_input(INPUT_POST, "new_email", FILTER_VALIDATE_EMAIL)){
+    if(!filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL)){
         if (!$errores){
             $errores .="?emailMal=true";
          } else {
@@ -73,44 +73,44 @@ if (validaCampoVacio($email)){
     }
 }
 
-if (validaCampoVacio($contraseña)){
+if (validaCampoVacio($contrasena)){
     if (!$errores){
-        $errores .="?contraseñaVacio=true";
+        $errores .="?contrasenaVacio=true";
      } else {
-        $errores .="&contraseñaVacio=true";        
+        $errores .="&contrasenaVacio=true";        
      }
   } else {
-    if(!preg_match("/^[a-zA-Z0-9]*$/",$contraseña)){
+    if(!preg_match("/^[a-zA-Z0-9]*$/",$contrasena)){
         if (!$errores){
-            $errores .="?contraseñaMal=true";
+            $errores .="?contrasenaMal=true";
          } else {
-            $errores .="&contraseñaMal=true";        
+            $errores .="&contrasenaMal=true";        
          }
     }
 }
 
-if (validaCampoVacio($confirmar_contraseña)){
-    if ($contraseña != "") {
+if (validaCampoVacio($confirmar_contrasena)){
+    if ($contrasena != "") {
         if (!$errores){
-            $errores .="?contraseña2Vacio=true";
+            $errores .="?contrasena2Vacio=true";
         } else {
-            $errores .="&contraseña2Vacio=true";        
+            $errores .="&contrasena2Vacio=true";        
         }
     }
     
     } else {
-    if(!preg_match("/^[a-zA-Z0-9]*$/",$confirmar_contraseña)){
+    if(!preg_match("/^[a-zA-Z0-9]*$/",$confirmar_contrasena)){
         if (!$errores){
-            $errores .="?contraseña2Mal=true";
+            $errores .="?contrasena2Mal=true";
         } else {
-            $errores .="&contraseña2Mal=true";        
+            $errores .="&contrasena2Mal=true";        
         }
     }
-    else if ($contraseña != $confirmar_contraseña) {
+    else if ($contrasena != $confirmar_contrasena) {
         if (!$errores){
-            $errores .="?contraseña2Repetir=true";
+            $errores .="?contrasena2Repetir=true";
         } else {
-            $errores .="&contraseña2Repetir=true";        
+            $errores .="&contrasena2Repetir=true";        
         }
     }
     
@@ -119,11 +119,11 @@ if (validaCampoVacio($confirmar_contraseña)){
 if ($errores!=""){
 
     $datosRecibidos = array(
-        'new_username' => $username,
-        'new_surname'=> $surname,
-        'new_email' => $email,
-        'new_password' => $contraseña,
-        'new_conf_password' => $confirmar_contraseña 
+        'username' => $username,
+        'surname'=> $surname,
+        'email' => $email,
+        'password' => $contrasena,
+        'conf_password' => $confirmar_contrasena 
     );
     
     $datosDevueltos=http_build_query($datosRecibidos);
@@ -131,11 +131,11 @@ if ($errores!=""){
     exit();
 }else{
     echo"<form id='EnvioCheck' action='register.proc.php' method='POST'>";
-    echo"<input type='hidden' id='username' name='new_username' value='".$username."'>";
-    echo"<input type='hidden' id='surname' name='new_surname' value='".$surname."'>";
-    echo"<input type='hidden' id='email' name='new_email' value='".$email."'>";
-    echo"<input type='hidden' id='password' name='new_password' value='".$contraseña."'>";
-    echo"<input type='hidden' id='confirm_password' name='new_conf_password' value='".$confirmar_contraseña."'>";
+    echo"<input type='hidden' id='username' name='username' value='".$username."'>";
+    echo"<input type='hidden' id='surname' name='surname' value='".$surname."'>";
+    echo"<input type='hidden' id='email' name='email' value='".$email."'>";
+    echo"<input type='hidden' id='password' name='password' value='".$contrasena."'>";
+    echo"<input type='hidden' id='confirm_password' name='conf_password' value='".$confirmar_contrasena."'>";
     echo"</form>";
     echo "<script>document.getElementById('EnvioCheck').submit();</script>";
  }
