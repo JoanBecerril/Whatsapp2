@@ -15,21 +15,13 @@
 
 <body>
     <div id="oscuro">
-        <header class="flex">
-            <div class="nav">
-                <img src="./src/LOGO/logoletrasgrandes.png" alt="">
-            </div>
-        </header>
-        <div class="flex texto">
-            <p>LA PLATAFORMA PARA<br>GESTIONAR ESCUELAS</p>
+            <div class="flex texto">
+            <p>WHATSAPP 2</p>
         </div>
         <br>
         <div class="flex botones">
             <a href="./login/login.php"><button>LOGIN</button></a>
             <a href="./register/register.php"><button>REGISTER</button></a>
-        </div>
-        <div>
-            <a href="?logout=true">Atrás</a>
         </div>
     </div>
 </body>

@@ -1,0 +1,103 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    z-index: -1;
+    background-image: url(./img/FONDOWHASTAPP-transformed.jpeg);
+}
+
+h2 {
+    color: white;
+}
+
+label {
+    color: white;
+}
+
+span {
+    color: black;
+    font-weight: 700;
+}
+
+.container {
+    margin-top: 3%;
+    width: 60%;
+    background-color: #088570;
+    padding-right: 10%;
+    padding-left: 10%;
+    border: #066252 5px solid;
+    border-radius: 3vh;
+}
+
+.bienvenido {
+    text-align: center;
+    color: white;
+}
+
+.btn-primary {
+    background-color: #673AB7;
+}
+
+.display-chat {
+    height: 380px;
+    background-color: #fff9ed;
+    margin-bottom: 4%;
+    overflow: auto;
+    padding: 15px;
+    border-radius: 2vh;
+}
+
+.mensaje_chat {
+    background-color: #e2ffc0;
+    color: black;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 3%;
+    border: 2px ridge #000;
+}
+
+.mensajeenviar {
+    width: 100%;
+    height: 6.5vh;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+    border-radius: 3vh;
+    border: none;
+}
+
+.botonenviar {
+    border-radius: 3vh;
+    height: 5.5vh;
+    width: 12vh;
+    background-color: #05493d;
+    border: none;
+    color: white;
+}
+
+.display-chat::-webkit-scrollbar {
+    width: 12px;
+}
+
+.display-chat::-webkit-scrollbar-track {
+    background: #088570;
+}
+
+.display-chat::-webkit-scrollbar-thumb {
+    background-color: #05493d;
+    border-radius: 4px;
+}

@@ -54,12 +54,12 @@ if (mysqli_num_rows($consulta) > 0) {
     $hashContrasena=$datos['password'];
 
     /*Comprobamos que la contrasena puesta sea igual a la de la base de datos (el hash)*/
-    if ($contrasena===$hashContrasena) {
+    if (password_verify($contrasena, $hashContrasena)) {
         /* Creamos la sesión */
         session_start();
         $_SESSION['loggedin'] = true;
         $_SESSION['username'] = $username;
-        header("location: ../../paginaprincipal.php");
+        header("location: ../../chat.php");
     } else {
         if ($contrasena != "") {
             if (!$errores){
@@ -94,7 +94,7 @@ if ($errores!=""){
     header("Location: ../login.php". $errores. "&". $datosDevueltos);
     exit();
 }else{
-    echo"<form id='EnvioCheck' action='../../paginaprincipal.php' method='POST'>";
+    echo"<form id='EnvioCheck' action='../../chat.php' method='POST'>";
     echo"<input type='hidden' id='username' name='username' value='".$username."'>";
     echo"<input type='hidden' id='password' name='password' value='".$contrasena."'>";
     echo"</form>";

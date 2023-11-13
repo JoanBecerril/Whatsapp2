@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Vision - Login</title>
+    <title>Whatsapp2 - Login</title>
     <link rel="shortcut icon" href="../src/LOGO/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="./login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,11 +14,6 @@
 </head>
 
 <body>
-    <header class="flex">
-        <div class="nav">
-            <img src="../src/LOGO/logoletrasgrandes.png" alt="">
-        </div>
-    </header>
     <div class="flex" id="oscuro">
         <div class="container">
             <h2 class="flex" id="titulo">INICIO DE SESION</h2>
